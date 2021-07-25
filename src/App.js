@@ -23,8 +23,8 @@ class App extends Component {
             <
             div className = "container" >
             <
-            NavbarBrand href = "/" > EXTRA BLATT RESTURANT < /NavbarBrand> <
-            Dishes / >
+            NavbarBrand href = "/" > EXTRA BLATT RESTURANT < /NavbarBrand>
+
             <
             /div> <
             /Navbar>
