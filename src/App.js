@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import { Dishes } from './Components/DishDetailComponent';
 
 function App() {
     return ( <
@@ -11,6 +12,8 @@ function App() {
         div className = "container" >
         <
         NavbarBrand href = "/" > EXTRA BLATT RESTURANT < /NavbarBrand> <
+        Dishes / >
+        <
         /div> <
         /Navbar> <
         /div>
