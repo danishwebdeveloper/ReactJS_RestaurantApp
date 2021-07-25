@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
 import { Dishes } from './Components/DishDetailComponent';
+import { Menu } from './Components/MenuComponent';
 
 function App() {
     return ( <
-        div className = "App" >
+        div >
         <
         Navbar dark color = "primary" >
         <
@@ -16,6 +17,8 @@ function App() {
         <
         /div> <
         /Navbar> <
+        Menu / >
+        <
         /div>
     );
 }
