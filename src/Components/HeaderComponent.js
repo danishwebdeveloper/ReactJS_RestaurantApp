@@ -11,7 +11,6 @@ export class Header extends Component {
         this.toggleNav = this.toggleNav.bind(this);
     }
 
-
     toggleNav() {
         this.setState({
             isNavOpen: !this.state.isNavOpen
@@ -26,7 +25,7 @@ export class Header extends Component {
             <
             div className = "container" >
             <
-            NavbarToggler onClick = { this.state.toggleNav }
+            NavbarToggler onClick = { this.toggleNav }
             /> <
             NavbarBrand className = "mr-auto"
             href = "/" >
