@@ -6,7 +6,7 @@ import { Footer } from './FooterComponent';
 import { Home } from './HomeComponent';
 import { Contact } from './ContactComponent';
 import { About } from './AboutComponent';
-
+import { addComment } from '../redux/ActionCreators';
 import { Redirect, Route, Router, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -22,6 +22,12 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+
+    addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment))
+})
+
+
 class Main extends Component {
 
     constructor(props) {
@@ -32,26 +38,20 @@ class Main extends Component {
     render() {
 
             const HomePage = () => {
-                return ( <
-                    Home dish = { this.props.dishes.filter((dish) => dish.featured)[0] }
-                    promotion = { this.props.promotions.filter((promo) => promo.featured)[0] }
-                    leader = { this.props.leaders.filter((lead) => lead.featured)[0] }
-                    />
-                )
-            }
-
-            // const ContactUS = () => {
-            //     return (
-            //       <Contact />
-            //     )
-            // }
-
-            // Match use and make this function becasue we want to match item and show to the dish detail page, 
-            // otherwise we also make simple by just doing simple props to dish detail as well
+                    return ( <
+                        Home dish = { this.props.dishes.filter((dish) => dish.featured)[0] }
+                        promotion = { this.props.promotions.filter((promo) => promo.featured)[0] }
+                        leader = { this.props.leaders.filter((lead) => lead.featured)[0] }
+                        />
+                    )
+                }
+                // Match use and make this function becasue we want to match item and show to the dish detail page, 
+                // otherwise we also make simple by just doing simple props to dish detail as well
             const DishWithId = ({ match }) => {
                 return ( <
                     Detail dish = { this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0] }
                     comments = { this.props.comments.filter((comnt) => comnt.dishId === parseInt(match.params.dishId, 10)) }
+                    addComment = { this.props.addComment }
                     />
                 )
             }
@@ -65,7 +65,9 @@ class Main extends Component {
                 <
                 Route path = "/home"
                 component = { HomePage }
-                /> { /* But here we also want to pass some value as a props to Menu as we send before so we do some different */ } <
+                /> 
+
+                { /* But here we also want to pass some value as a props to Menu as we send before so we do some different */ } <
                 Route exact path = "/menu"
                 component = {
                     () => < Menu dishes = { this.props.dishes }
@@ -73,7 +75,7 @@ class Main extends Component {
                     <
                     Route path = '/menu/:dishId'
                     component = { DishWithId }
-                    /> <
+                    />  <
                     Route path = "/aboutus"
                     component = {
                         () => < About leaders = { this.props.leaders }
@@ -81,10 +83,10 @@ class Main extends Component {
                         <
                         Route path = "/contactus"
                         component = { Contact }
-                        /> <
+                        />  <
                         Redirect to = "/home" / >
                         <
-                        /Switch> <
+                        /Switch>  <
                         Footer / >
                         <
                         /div>
@@ -92,4 +94,4 @@ class Main extends Component {
                 }
             }
 
-            export default withRouter(connect(mapStateToProps)(Main));
+            export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
