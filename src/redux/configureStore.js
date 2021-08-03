@@ -5,6 +5,7 @@ import { Promotions } from './promotions';
 import { Dishes } from './dishes';
 
 
+// Combine Reducer
 export const configureStore = () => {
     const store = createStore(
         combineReducers({
