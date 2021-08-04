@@ -41,7 +41,7 @@ export class Header extends Component {
             div className = "container" >
             <
             NavbarToggler onClick = { this.toggleNav }
-            /> <
+            />  <
             NavbarBrand className = "mr-auto"
             href = "/" >
             <
@@ -50,7 +50,7 @@ export class Header extends Component {
             width = "41"
             alt = "Extra Blatt Resturant!!" / >
             <
-            /NavbarBrand> <
+            /NavbarBrand>  <
             Collapse isOpen = { this.state.isNavOpen }
             navbar >
             <
@@ -61,34 +61,26 @@ export class Header extends Component {
             NavLink className = "nav-link"
             to = "/home" >
             <
-            span className = "fa fa-home fa-lg" > < /span>HOME <
-            /NavLink> <
-            /NavItem> <
+            span className = "fa fa-home fa-lg" > < /span>HOME  <
+            /NavLink> </NavItem >
+            <
             NavItem >
             <
             NavLink className = "nav-link"
             to = "/aboutus" >
             <
-            span className = "fa fa-info fa-lg" > < /span>About Us <
-            /NavLink> <
-            /NavItem> <
-            NavItem >
+            span className = "fa fa-info fa-lg" > < /span>About Us  <
+            /NavLink> </NavItem > < NavItem >
             <
             NavLink className = "nav-link"
             to = "/menu" >
             <
-            span className = "fa fa-list fa-lg" > < /span>Menu <
-            /NavLink> <
-            /NavItem> <
-            NavItem >
-            <
+            span className = "fa fa-list fa-lg" > < /span>Menu </NavLink > < /NavItem> <NavItem > <
             NavLink className = "nav-link"
             to = "/contactus" >
             <
-            span className = "fa fa-address-card fa-lg" > < /span>Contact Us <
-            /NavLink> <
-            /NavItem> <
-            /Nav> <
+            span className = "fa fa-address-card fa-lg" > < /span>Contact Us </NavLink > < /NavItem>  <
+            /Nav>  <
             Nav className = "ml-auto"
             navbar >
             <
@@ -96,14 +88,10 @@ export class Header extends Component {
             <
             Button outline onClick = { this.toggleModal } >
             <
-            span className = "fa fa-sign-in fa-lg" > < /span>Login <
-            /Button> <
-            /NavItem> <
-            /Nav> <
-            /Collapse> <
-            /div> <
-            /Navbar> <
-            Jumbotron >
+            span className = "fa fa-sign-in fa-lg" > < /span>Login </Button >
+            <
+            /NavItem>  <
+            /Nav> </Collapse > < /div> </Navbar > < Jumbotron >
             <
             div className = "container" >
             <
@@ -111,16 +99,16 @@ export class Header extends Component {
             <
             div className = "col-12 col-sm-6" >
             <
-            h1 > Extra Blatt Resturant!! < /h1> <
-            p > We take inspiration from the World 's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p> <
-            /div> <
-            /div> <
+            h1 > Extra Blatt Resturant!! < /h1> <p> We take inspiration from the World 's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p >
+            <
+            /div>  <
+            /div>  <
             /div> <
             /Jumbotron> <
             Modal isOpen = { this.state.isModalOpen }
             toggle = { this.toggleModal } >
             <
-            ModalHeader toggle = { this.toggleModal } > Login < /ModalHeader> <
+            ModalHeader toggle = { this.toggleModal } > Login < /ModalHeader>  <
             ModalBody >
             <
             Form onSubmit = { this.handleLogin } >
@@ -128,29 +116,25 @@ export class Header extends Component {
             FormGroup >
             <
             Label htmlFor = "username"
-            md = { 2 } > Username < /Label> <
+            md = { 2 } > Username < /Label>  <
             Input type = "text"
             name = "username"
             id = "username"
             // This innerref is used to retreive the value
             innerRef = {
                 (Input) => this.username = Input }
-            /> <
-            /FormGroup> <
-            FormGroup >
-            <
+            />  <
+            /FormGroup> <FormGroup > <
             Label htmlFor = "password"
-            md = { 2 } > Password < /Label> <
+            md = { 2 } > Password < /Label>  <
             Input type = "text"
             name = "password"
             id = "password"
             // This innerref is used to retreive the value
             innerRef = {
                 (Input) => this.password = Input }
-            /> <
-            /FormGroup> <
-            FormGroup check >
-            <
+            />  <
+            /FormGroup> <FormGroup check> <
             Label check >
             <
             Input type = "checkbox"
@@ -158,17 +142,13 @@ export class Header extends Component {
             // This innerref is used to retreive the value
             innerRef = {
                 (Input) => this.remember = Input }
-            />Remember Me <
-            /Label> <
-            /FormGroup> <
-            Button type = "submit"
+            />Remember Me </Label > < /FormGroup> <Button type = "submit"
             value = "Submit"
             color = "primary" >
-            Login <
-            /Button> <
-            /Form> <
-            /ModalBody> <
-            /Modal> <
+            Login < /Button>  <
+            /Form>  <
+            /ModalBody> </Modal >
+            <
             /React.Fragment>
         )
     }

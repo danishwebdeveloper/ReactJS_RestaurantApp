@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { CardImg, CardBody, CardText, CardTitle, BreadcrumbItem, Breadcrumb, Modal, Button, Label, Col, Row, ModalHeader, ModalBody } from 'reactstrap';
-
+import { Loading } from './LoadingComponent';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -174,6 +174,28 @@ function RenderDish({ dish }) {
 
 
 const Detail = (props) => {
+    if (props.isLoading) {
+        return ( <
+            div className = "container" >
+            <
+            div className = "row" >
+            <
+            Loading / >
+            <
+            /div> <
+            /div>
+        );
+    } else if (props.errMess) {
+        return ( <
+            div className = "container" >
+            <
+            div className = "row" >
+            <
+            h4 > { props.errMess } < /h4> <
+            /div> <
+            /div>
+        );
+    }
     if (props.dish != null) {
 
         return ( <
