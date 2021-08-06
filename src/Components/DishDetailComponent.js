@@ -3,6 +3,7 @@ import { Control, Errors, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { CardImg, CardBody, CardText, CardTitle, BreadcrumbItem, Breadcrumb, Modal, Button, Label, Col, Row, ModalHeader, ModalBody } from 'reactstrap';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -158,7 +159,7 @@ function RenderDish({ dish }) {
         div className = "col-12 col-md-5 m-1" >
         <
         CardImg width = "100%"
-        src = { dish.image }
+        src = { baseUrl + dish.image }
         alt = { dish.name }
         />  <
         CardBody >
@@ -171,6 +172,7 @@ function RenderDish({ dish }) {
         /div>
     )
 }
+
 
 
 const Detail = (props) => {
