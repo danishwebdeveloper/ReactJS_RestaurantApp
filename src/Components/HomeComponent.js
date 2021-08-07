@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reac
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
+
 function RenderCard({ item, isLoading, errMess }) {
 
     if (isLoading) {
@@ -30,7 +31,6 @@ function RenderCard({ item, isLoading, errMess }) {
             );
         }
 
-
     export function Home(props) {
         return ( <
             div className = "container" >
@@ -41,7 +41,7 @@ function RenderCard({ item, isLoading, errMess }) {
             <
             RenderCard item = { props.dish }
             isLoading = { props.dishesLoading }
-            errMess = { props.dishesErrMess }
+            errMess = { props.dishErrMess }
             /> <
             /div>  <
             div className = "col-12 col-md m-1" >
@@ -54,6 +54,8 @@ function RenderCard({ item, isLoading, errMess }) {
             div className = "col-12 col-md m-1" >
             <
             RenderCard item = { props.leader }
+            isLoading = { props.leaderLoading }
+            errMess = { props.leaderErrMess }
             />  <
             /div>  <
             /div>  <

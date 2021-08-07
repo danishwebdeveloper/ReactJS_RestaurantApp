@@ -2,7 +2,6 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
 function Renderleader({ leaders }) {
     return ( <
         div className = "col-12 mt-5" >
@@ -48,8 +47,7 @@ export function About(props) {
         /Breadcrumb>  <
         div className = "col-12" >
         <
-        h3 > About Us < /h3> <
-        hr / >
+        h3 > About Us < /h3> <hr/ >
         <
         /div>                  <
         /div>  <
