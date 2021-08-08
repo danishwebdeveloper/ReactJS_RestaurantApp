@@ -27,7 +27,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toogleModel();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -130,7 +130,7 @@ class CommentForm extends Component {
     }
 }
 
-function RenderComment({ comments, addComment, dishId }) {
+function RenderComment({ comments, postComment, dishId }) {
     return ( <
         div className = "col-12 col-md-5 m-1" >
         <
@@ -146,7 +146,7 @@ function RenderComment({ comments, addComment, dishId }) {
         } < /ul> 
 
         <
-        CommentForm addComment = { addComment }
+        CommentForm postComment = { postComment }
         dishId = { dishId }
         /> <
         /div>
@@ -228,7 +228,7 @@ const Detail = (props) => {
             div className = "col-12 col-md-5 m-1" >
             <
             RenderComment comments = { props.comments }
-            addComment = { props.addComment }
+            postComment = { props.postComment }
             dishId = { props.dish.id }
             /> <
             /div> <

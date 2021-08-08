@@ -8,7 +8,7 @@ import { Contact } from './ContactComponent';
 import { About } from './AboutComponent';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
+import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
+    postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
     fetchDishes: () => { dispatch(fetchDishes()) },
     resetFeedbackForm: () => { dispatch(actions.reset('feedback')) },
     fetchComments: () => { dispatch(fetchComments()) },
@@ -48,9 +48,11 @@ class Main extends Component {
                         Home dish = { this.props.dishes.dishes.filter((dish) => dish.featured)[0] }
                         dishesLoading = { this.props.dishes.isLoading }
                         dishErrMess = { this.props.dishes.errMess }
+
                         promotion = { this.props.promotions.promotions.filter((promo) => promo.featured)[0] }
                         promoLoading = { this.props.promotions.isLoading }
                         promoErrMess = { this.props.promotions.errMess }
+
                         leader = { this.props.leaders.leaders.filter((leader) => leader.featured)[0] }
                         leaderLoading = { this.props.leaders.isLoading }
                         leaderErrMess = { this.props.leaders.errMess }
@@ -66,11 +68,10 @@ class Main extends Component {
                     errMess = { this.props.dishes.errMess }
                     comments = { this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10)) }
                     commentsErrMess = { this.props.comments.errMess }
-                    addComment = { this.props.addComment }
+                    postComment = { this.props.postComment }
                     />
                 );
             };
-
             return ( <
                     div >
                     <
