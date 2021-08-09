@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
-import { CardImg, CardBody, CardText, CardTitle, BreadcrumbItem, Breadcrumb, Modal, Button, Label, Col, Row, ModalHeader, ModalBody } from 'reactstrap';
+import { CardImg, CardBody, CardText, CardTitle, BreadcrumbItem, Breadcrumb, Modal, Button, Label, Col, Row, ModalHeader, ModalBody, Card } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -143,9 +144,7 @@ function RenderComment({ comments, postComment, dishId }) {
                 p > { comnt.comment } < /p>  <
                 p > { comnt.author }, { comnt.date.split("T")[0] } < /p> </li >
             )
-        } < /ul> 
-
-        <
+        } < /ul>  <
         CommentForm postComment = { postComment }
         dishId = { dishId }
         /> <
@@ -153,10 +152,18 @@ function RenderComment({ comments, postComment, dishId }) {
     )
 }
 
-
 function RenderDish({ dish }) {
     return ( <
         div className = "col-12 col-md-5 m-1" >
+        <
+        FadeTransform in
+        transformProps = {
+            {
+                exitTransform: 'scale(0.5) translateY(-50%)'
+            }
+        } >
+        <
+        Card >
         <
         CardImg width = "100%"
         src = { baseUrl + dish.image }
@@ -169,6 +176,8 @@ function RenderDish({ dish }) {
         CardText > { dish.description } <
         /CardText>  <
         /CardBody>  <
+        /Card> <
+        /FadeTransform> <
         /div>
     )
 }

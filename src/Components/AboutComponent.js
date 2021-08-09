@@ -1,6 +1,7 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 function Renderleader({ leaders }) {
     return ( <
@@ -10,7 +11,8 @@ function Renderleader({ leaders }) {
         <
         Media left middle >
         <
-        Media object src = { leaders.image }
+        Media width = "100%"
+        object src = { baseUrl + leaders.image }
         alt = { leaders.name }
         />  <
         /Media> <Media body className = "ml-5" > <
