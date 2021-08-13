@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BreadcrumbItem, Breadcrumb, Button, Label, FormGroup, FormFeedback, Col, Input, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Form, Control, Errors, actions } from 'react-redux-form';
+import { Form, Control, Errors } from 'react-redux-form';
 import { baseUrl } from '../shared/baseUrl';
-
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -17,7 +16,6 @@ export class Contact extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleSubmit(values) {
         console.log("Current State is:" + JSON.stringify(values));
